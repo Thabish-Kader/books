@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load static %}
 
 
 {% block title %}
@@ -8,9 +9,9 @@
 
 {% block content %}
     <h1>HomePage</h1>
-    
+    <img class="bookcover" src="{% static 'images/dfp.png' %}" >
     {% if user.is_authenticated %}
-        Hi {{user.email}}
+        <p>Hi {{user.email}}</p>
         <P>
         <a href="{% url 'logout' %}">Log Out</a>
     {% else %}

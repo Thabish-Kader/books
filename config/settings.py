@@ -38,11 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # third party
+    'crispy_forms',
+
     # local
     'accounts',
     'pages',
 
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -132,3 +137,13 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
+
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
+
